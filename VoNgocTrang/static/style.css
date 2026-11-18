@@ -1,0 +1,62 @@
+:root {
+    --bg-main: #FAF7F7;
+    --pink-brand: #C9969A;
+    --dark-brand: #1A1818;
+    --card-bg: #FFFFFF;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-main);
+    color: #2D2A2A;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.font-serif-luxury {
+    font-family: 'Playfair Display', serif;
+}
+
+.luxury-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(201, 150, 154, 0.15);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px -12px rgba(201, 150, 154, 0.25);
+    border-color: rgba(201, 150, 154, 0.4);
+}
+
+.product-img-box img {
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-card:hover .product-img-box img {
+    transform: scale(1.08);
+}
+
+.btn-modern {
+    background-color: var(--dark-brand);
+    color: #FFFFFF;
+    border-radius: 9999px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    text-align: center;
+    display: inline-block;
+}
+
+.btn-modern:hover {
+    background-color: var(--pink-brand);
+    box-shadow: 0 10px 20px -5px rgba(201, 150, 154, 0.4);
+}
+
+.aurora-bg {
+    background: radial-gradient(circle at 10% 20%, rgba(201, 150, 154, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(26, 24, 24, 0.08) 0%, transparent 40%);
+}

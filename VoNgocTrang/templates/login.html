@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập - Thời Trang Genz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="bg-[#F7F2F2] min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
+
+    <div class="bg-white/95 backdrop-blur-2xl w-full max-w-md rounded-3xl shadow-2xl border border-stone-200/80 p-8 sm:p-10 relative z-10">
+        <div class="flex flex-col items-center justify-center mb-8">
+            <div class="w-16 h-16 bg-[#FDF8F8] rounded-full flex items-center justify-center mb-3 shadow-sm border border-pink-100">
+                <svg class="w-7 h-7 text-[#d4a0a3]" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M9 2C8 2 7 4 7 8v4c0 1.1.9 2 2 2s2-.9 2-2V8c0-4-1-6-2-6zm6 0c-1 0-2 2-2 6v4c0 1.1.9 2 2 2s2-.9 2-2V8c0-4-1-6-2-6z" opacity="0.9"/>
+                    <circle cx="12" cy="15" r="6"/>
+                </svg>
+            </div>
+            <h1 class="text-2xl font-serif font-bold text-gray-900 tracking-wide">Chào Bạn Mới</h1>
+            <p class="text-xs text-stone-500 mt-1 tracking-wider uppercase">Gen Z Fashion Experience</p>
+        </div>
+
+        <!-- FORM ĐĂNG NHẬP (Gửi dữ liệu về route /login chuẩn xác của Flask) -->
+        <form method="POST" action="/login" class="space-y-4">
+            
+            {% if error %}
+            <div class="bg-red-50 text-red-500 border border-red-200 text-xs font-bold text-center py-2.5 rounded-xl mb-3 shadow-sm">
+                {{ error }}
+            </div>
+            {% endif %}
+
+            <div>
+                <label class="block text-[11px] font-semibold text-stone-600 uppercase tracking-wider mb-1.5">Tên đăng nhập</label>
+                <input type="text" name="username" required placeholder="Nhập tài khoản (vd: ngoctrang)..." 
+                    class="w-full px-4 py-3 bg-stone-50/70 border border-stone-200 rounded-xl text-sm focus:outline-none focus:border-[#d4a0a3] focus:bg-white transition">
+            </div>
+
+            <div>
+                <label class="block text-[11px] font-semibold text-stone-600 uppercase tracking-wider mb-1.5">Mật khẩu</label>
+                <input type="password" name="password" required placeholder="Nhập mật khẩu (vd: 123456)..." 
+                    class="w-full px-4 py-3 bg-stone-50/70 border border-stone-200 rounded-xl text-sm focus:outline-none focus:border-[#d4a0a3] focus:bg-white transition">
+            </div>
+
+            <button type="submit" class="w-full mt-2 py-3.5 bg-[#d4a0a3] hover:bg-[#c38f92] text-white font-semibold rounded-xl text-sm tracking-wide shadow-md transition">
+                ĐĂNG NHẬP
+            </button>
+        </form>
+        
+        <div class="text-center mt-6">
+            <a href="/" class="text-xs text-stone-500 hover:text-gray-900 transition">← Quay lại trang chủ</a>
+        </div>
+
+        <!-- Đoạn code đăng ký nằm ở đây, BÊN TRONG khối giao diện -->
+        <div class="mt-6 text-center">
+            <a href="/register" class="text-xs text-stone-500 hover:text-gray-900 transition">Chưa có tài khoản? <span class="font-bold underline decoration-[#C9969A] underline-offset-4">Đăng ký ngay</span></a>
+        </div>
+
+    </div>
+</body>
+</html>

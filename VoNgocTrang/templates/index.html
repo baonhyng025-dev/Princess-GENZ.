@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thời Trang GenZ ✨ Giấc Mơ Cổ Tích</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Nunito', sans-serif; background-color: #FDFBFC; color: #5a4a4a; }
+        .font-royal { font-family: 'Playfair Display', serif; }
+        .font-fairy { font-family: 'Great Vibes', cursive; }
+        .magic-shadow { box-shadow: 0 15px 40px -10px rgba(224, 195, 252, 0.4); }
+        .magic-hover:hover { box-shadow: 0 20px 50px -10px rgba(255, 182, 193, 0.6); transform: translateY(-5px); transition: all 0.4s ease; }
+        .arch-frame { border-radius: 120px 120px 20px 20px; }
+        .float-gentle { animation: floatMagic 4s ease-in-out infinite; }
+        @keyframes floatMagic { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .sparkle-anim { animation: sparkle 2s infinite alternate; }
+        @keyframes sparkle { 0% { opacity: 0.4; transform: scale(0.8); } 100% { opacity: 1; transform: scale(1.2); } }
+        .product-item { transition: opacity 0.4s ease, transform 0.4s ease; }
+        
+        .time-box { background: linear-gradient(135deg, #a855f7, #ec4899); color: white; padding: 6px 12px; border-radius: 8px; font-weight: 900; font-size: 16px; box-shadow: 0 4px 10px rgba(236, 72, 153, 0.3); }
+        @keyframes shine { 0% { transform: translateX(-100%) skewX(-20deg); } 100% { transform: translateX(200%) skewX(-20deg); } }
+        .animate-shine { animation: shine 2.5s infinite; }
+    </style>
+</head>
+<body class="antialiased selection:bg-purple-200 selection:text-purple-900 overflow-x-hidden">
+
+    <div class="bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-300 text-white text-[11px] font-bold py-2.5 px-4 text-center tracking-widest uppercase relative overflow-hidden">
+        <span class="relative z-10">✨ Phép màu trao tay — Miễn phí cỗ xe ngựa vận chuyển cho đơn từ 500.000₫ ✨</span>
+    </div>
+
+    <!-- HEADER CHUẨN: CHỨA CÁC TRANG CHỨC NĂNG, KHÔNG PHẢI BỘ LỌC -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-purple-50 shadow-sm transition-all duration-500">
+        <div class="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between gap-8">
+            <a href="/" class="flex flex-col items-center group flex-shrink-0 mt-1">
+                <span class="font-fairy text-pink-400 text-3xl leading-none -mb-2 group-hover:text-purple-400 transition-colors sparkle-anim">Princess</span>
+                <span class="text-xl font-royal font-bold tracking-widest text-gray-800">GENZ.</span>
+            </a>
+            <div class="flex-1 max-w-2xl hidden md:flex items-center">
+                <div class="relative w-full">
+                    <input type="text" placeholder="Tìm kiếm trang phục phép thuật..." class="w-full bg-pink-50/50 border border-pink-100 text-sm font-semibold text-gray-700 px-6 py-2.5 rounded-full outline-none focus:bg-white focus:border-pink-300 focus:ring-2 focus:ring-pink-100 transition-all placeholder-gray-400 shadow-inner">
+                    <button class="absolute right-1 top-1 bottom-1 bg-gradient-to-r from-purple-300 to-pink-300 text-white w-12 flex items-center justify-center rounded-full hover:from-purple-400 hover:to-pink-400 transition-colors shadow-sm">
+                        <i class="fa-solid fa-magnifying-glass text-sm"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="flex items-center gap-5 flex-shrink-0">
+                <div class="hidden lg:flex items-center gap-2 border-r border-pink-100 pr-5">
+                    <div class="w-8 h-8 rounded-full bg-pink-50 flex items-center justify-center text-pink-400">
+                        <i class="fa-solid fa-phone-volume text-xs"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Hotline 24/7</span>
+                        <span class="text-sm font-black text-gray-700">1900 8888</span>
+                    </div>
+                </div>
+                {% if session.get('username') %}
+                    <div class="group relative cursor-pointer flex items-center gap-2">
+                        <div class="w-9 h-9 rounded-full bg-purple-50 flex items-center justify-center text-purple-400 border border-purple-100">
+                            <i class="fa-solid fa-user-astronaut text-sm"></i>
+                        </div>
+                        <span class="text-xs font-bold text-gray-600 hidden sm:block">{{ session['username'] }}</span>
+                        <div class="absolute top-full right-0 mt-3 w-48 bg-white rounded-2xl shadow-xl border border-pink-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 flex flex-col p-2 overflow-hidden z-50">
+                            <a href="/my_orders" class="text-xs font-bold text-gray-600 hover:text-pink-500 hover:bg-pink-50 px-4 py-2.5 rounded-xl transition-colors flex items-center gap-3"><i class="fa-solid fa-scroll w-4"></i> Đơn Hàng</a>
+                            {% if session['role'] in ['super_admin', 'sub_admin'] %}
+                                <a href="/admin" class="text-xs font-bold text-gray-600 hover:text-purple-500 hover:bg-purple-50 px-4 py-2.5 rounded-xl transition-colors flex items-center gap-3"><i class="fa-solid fa-chess-queen w-4"></i> Vương Quốc</a>
+                            {% endif %}
+                            <div class="h-px bg-gray-100 my-1"></div>
+                            <a href="/logout" class="text-xs font-bold text-red-400 hover:text-red-500 hover:bg-red-50 px-4 py-2.5 rounded-xl transition-colors flex items-center gap-3"><i class="fa-solid fa-right-from-bracket w-4"></i> Rời đi</a>
+                        </div>
+                    </div>
+                {% else %}
+                    <a href="/login" class="text-[11px] font-bold text-gray-500 hover:text-pink-400 uppercase tracking-widest transition-colors flex items-center gap-1.5">
+                        <i class="fa-regular fa-circle-user text-lg"></i> <span class="hidden sm:inline">Đăng Nhập</span>
+                    </a>
+                {% endif %}
+                <a href="/cart" class="relative flex items-center justify-center w-10 h-10 bg-gradient-to-tr from-purple-100 to-pink-100 rounded-full hover:shadow-md hover:shadow-pink-200/50 transition-all duration-300 cursor-pointer text-pink-500 border border-white">
+                    <i class="fa-solid fa-basket-shopping text-lg"></i>
+                    {% if cart_count and cart_count > 0 %}
+                    <span class="absolute -top-1 -right-1 bg-gradient-to-tr from-pink-400 to-purple-400 text-white text-[9px] font-black w-4.5 h-4.5 rounded-full flex items-center justify-center ring-2 ring-white shadow-sm">{{ cart_count }}</span>
+                    {% endif %}
+                </a>
+            </div>
+        </div>
+        
+        <!-- Thanh menu đi đến các khu vực trên trang -->
+        <div class="border-t border-gray-50 bg-white/40">
+            <div class="max-w-[1400px] mx-auto px-6 h-11 flex items-center justify-center gap-8 lg:gap-12 overflow-x-auto no-scrollbar">
+                <a href="/" class="text-[10px] font-black uppercase tracking-widest text-pink-500 border-b-2 border-pink-400 py-3 whitespace-nowrap">Trang Chủ</a>
+                <a href="#products-section" class="text-[10px] font-bold uppercase tracking-widest text-gray-500 hover:text-pink-400 py-3 transition-colors whitespace-nowrap">Tất Cả Sản Phẩm</a>
+                <a href="#hero-section" class="text-[10px] font-bold uppercase tracking-widest text-gray-500 hover:text-pink-400 py-3 transition-colors whitespace-nowrap">Bộ Sưu Tập Mới</a>
+                <a href="#magazine-section" class="text-[10px] font-bold uppercase tracking-widest text-gray-500 hover:text-pink-400 py-3 transition-colors whitespace-nowrap">Tạp Chí Thời Trang</a>
+                <a href="#footer" class="text-[10px] font-bold uppercase tracking-widest text-gray-500 hover:text-pink-400 py-3 transition-colors whitespace-nowrap">Về Chúng Tôi</a>
+                <a href="#flash-sale" class="text-[10px] font-black uppercase tracking-widest text-red-400 hover:text-red-500 py-3 transition-colors whitespace-nowrap flex items-center gap-1">
+                    <i class="fa-solid fa-fire text-xs"></i> Khuyến Mãi
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. HERO BANNER -->
+    <section class="max-w-[1400px] mx-auto px-4 sm:px-6 py-6" id="hero-section">
+        <div class="rounded-[40px] bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 relative overflow-hidden flex flex-col md:flex-row items-center min-h-[500px] magic-shadow border border-white p-8 md:p-16">
+            <div class="absolute top-10 left-10 w-72 h-72 bg-purple-200/40 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 right-10 w-96 h-96 bg-pink-200/40 rounded-full blur-3xl"></div>
+            <div class="absolute top-1/2 left-1/2 w-4 text-yellow-300 text-2xl sparkle-anim">✨</div>
+            <div class="relative z-10 w-full md:w-1/2 text-center md:text-left">
+                <span class="font-fairy text-4xl text-purple-400 mb-2 block">Once upon a time...</span>
+                <h1 class="text-5xl md:text-6xl font-royal font-bold mb-6 leading-tight text-gray-800">Phép Màu <br> <span class="italic font-light text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Thời Trang.</span></h1>
+                <p class="text-gray-500 text-sm font-semibold mb-10 max-w-md mx-auto md:mx-0 leading-relaxed">Hóa thân thành nàng công chúa kiêu sa với những thiết kế bồng bềnh, lấp lánh. Mỗi bộ váy là một giấc mơ bước ra từ đời thực.</p>
+                <a href="#products-section" class="bg-gradient-to-r from-purple-300 to-pink-300 text-white font-bold text-[11px] tracking-widest uppercase px-10 py-4 rounded-full hover:from-purple-400 hover:to-pink-400 transition-all duration-300 shadow-lg shadow-pink-200/50 inline-block">Bắt đầu câu chuyện ✨</a>
+            </div>
+            <div class="relative z-10 w-full md:w-1/2 mt-12 md:mt-0 flex justify-center float-gentle hidden md:flex">
+                <div class="w-[280px] h-[380px] bg-white p-2 arch-frame magic-shadow relative">
+                    <div class="w-full h-full arch-frame overflow-hidden border border-pink-50 relative bg-pink-50">
+                        <img src="{{ url_for('static', filename='images/banner.jpg') }}" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-purple-900/30 to-transparent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. TRUST BADGES -->
+    <section class="max-w-[1400px] mx-auto px-6 mb-12">
+        <div class="bg-white rounded-3xl p-6 magic-shadow border border-pink-50 grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-x divide-pink-50">
+            <div class="flex flex-col items-center justify-center gap-2">
+                <div class="w-12 h-12 bg-pink-50 rounded-full flex items-center justify-center text-pink-500 text-xl mb-1"><i class="fa-solid fa-truck-fast"></i></div>
+                <h4 class="font-bold text-gray-800 text-sm">Giao Hàng Hỏa Tốc</h4>
+                <p class="text-xs text-gray-400 font-semibold">Miễn phí cho đơn từ 500k</p>
+            </div>
+            <div class="flex flex-col items-center justify-center gap-2">
+                <div class="w-12 h-12 bg-purple-50 rounded-full flex items-center justify-center text-purple-500 text-xl mb-1"><i class="fa-solid fa-box-open"></i></div>
+                <h4 class="font-bold text-gray-800 text-sm">Đổi Trả Dễ Dàng</h4>
+                <p class="text-xs text-gray-400 font-semibold">Trả hàng miễn phí 30 ngày</p>
+            </div>
+            <div class="flex flex-col items-center justify-center gap-2">
+                <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-blue-500 text-xl mb-1"><i class="fa-solid fa-shield-halved"></i></div>
+                <h4 class="font-bold text-gray-800 text-sm">Thanh Toán Bảo Mật</h4>
+                <p class="text-xs text-gray-400 font-semibold">Mã hóa an toàn 100%</p>
+            </div>
+            <div class="flex flex-col items-center justify-center gap-2">
+                <div class="w-12 h-12 bg-yellow-50 rounded-full flex items-center justify-center text-yellow-500 text-xl mb-1"><i class="fa-solid fa-headset"></i></div>
+                <h4 class="font-bold text-gray-800 text-sm">Hỗ Trợ 24/7</h4>
+                <p class="text-xs text-gray-400 font-semibold">Luôn đồng hành cùng bạn</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. FLASH SALE -->
+    <section class="max-w-[1400px] mx-auto px-6 mb-16" id="flash-sale">
+        <div class="bg-gradient-to-r from-purple-50 via-pink-50 to-indigo-50 rounded-[40px] p-8 md:p-12 border border-purple-100 relative overflow-hidden magic-shadow">
+            <div class="absolute -top-20 -right-20 text-[200px] opacity-[0.03] text-purple-900"><i class="fa-solid fa-clock"></i></div>
+            
+            <div class="flex flex-col md:flex-row items-center justify-between mb-8 relative z-10 gap-6">
+                <div class="flex items-center gap-4">
+                    <h2 class="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500 uppercase tracking-tight italic flex items-center gap-2">
+                        <i class="fa-solid fa-bolt text-yellow-400"></i> Giờ Vàng
+                    </h2>
+                    <div class="flex gap-1.5 items-center">
+                        <span class="time-box" id="fs-hours">00</span> <span class="text-purple-400 font-bold">:</span>
+                        <span class="time-box" id="fs-mins">00</span> <span class="text-purple-400 font-bold">:</span>
+                        <span class="time-box" id="fs-secs">00</span>
+                    </div>
+                </div>
+                <a href="#products-section" class="text-purple-400 font-bold text-sm hover:text-pink-500 flex items-center gap-1 transition-colors">Xem tất cả <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 relative z-10">
+                {% for p in products[14:18] %} 
+                <a href="/product/{{ p[0] }}" class="group bg-white rounded-3xl p-3 shadow-sm hover:shadow-xl transition-all border border-white hover:border-purple-200 flex flex-col">
+                    <div class="relative aspect-[3/4] rounded-2xl overflow-hidden mb-3 bg-gray-50">
+                        <div class="absolute top-2 left-2 z-10 bg-gradient-to-r from-purple-400 to-pink-400 text-white text-[10px] font-black px-2 py-1 rounded-md shadow-sm">-50%</div>
+                        <img src="{{ url_for('static', filename='images/' + p[4]) }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <h3 class="font-bold text-gray-800 text-sm mb-1 line-clamp-1">{{ p[1] }}</h3>
+                    <div class="flex items-end gap-2 mt-auto">
+                        <span class="text-lg font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">{{ "{:,.0f}".format(p[2] / 2) }} ₫</span>
+                        <span class="text-[10px] text-gray-400 line-through mb-1">{{ "{:,.0f}".format(p[2]) }} ₫</span>
+                    </div>
+                    <div class="w-full bg-purple-50 h-1.5 rounded-full mt-2 overflow-hidden relative">
+                        <div class="bg-gradient-to-r from-purple-300 to-pink-400 h-full w-[85%] rounded-full relative overflow-hidden">
+                             <div class="absolute top-0 left-0 w-[30px] h-full bg-white/40 skew-x-[-20deg] animate-shine"></div>
+                        </div>
+                    </div>
+                    <p class="text-[9px] text-purple-400 font-bold mt-1 text-center">Đã được rước 85%</p>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SẢN PHẨM & BỘ LỌC CHUẨN XÁC NẰM Ở ĐÂY -->
+    <main id="products-section" class="max-w-[1400px] mx-auto px-6 py-12 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] border-t border-pink-50">
+        <div class="flex flex-col items-center mb-8 text-center">
+            <span class="font-fairy text-4xl text-purple-400 mb-2 block" id="section-subtitle">Lựa chọn của bạn</span>
+            <h2 class="text-4xl font-royal font-bold text-gray-800 mb-4" id="section-title">Một Số Sản Phẩm Tiêu Biểu</h2>
+            <div class="h-1 w-20 bg-gradient-to-r from-transparent via-pink-300 to-transparent mb-6"></div>
+        </div>
+
+        <!-- BỘ LỌC CÁC DANH MỤC THỜI TRANG -->
+        <div class="flex flex-wrap justify-center gap-3 mb-12" id="filter-buttons">
+            <button type="button" onclick="filterCategory('Tiêu biểu', this)" class="cat-btn bg-gradient-to-r from-purple-300 to-pink-300 text-white shadow-md shadow-pink-200 px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all outline-none cursor-pointer">Tiêu biểu</button>
+            <button type="button" onclick="filterCategory('Váy Dài', this)" class="cat-btn bg-white text-gray-500 hover:bg-pink-50 hover:text-pink-400 border border-gray-100 px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all outline-none cursor-pointer">Váy Dài</button>
+            <button type="button" onclick="filterCategory('Váy Ngắn', this)" class="cat-btn bg-white text-gray-500 hover:bg-pink-50 hover:text-pink-400 border border-gray-100 px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all outline-none cursor-pointer">Váy Ngắn</button>
+            <button type="button" onclick="filterCategory('Công Chúa', this)" class="cat-btn bg-white text-gray-500 hover:bg-pink-50 hover:text-pink-400 border border-gray-100 px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all outline-none cursor-pointer">Công Chúa</button>
+            <button type="button" onclick="filterCategory('Phối Đồ', this)" class="cat-btn bg-white text-gray-500 hover:bg-pink-50 hover:text-pink-400 border border-gray-100 px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all outline-none cursor-pointer">Phối Đồ</button>
+            <button type="button" onclick="filterCategory('Hiện Đại', this)" class="cat-btn bg-white text-gray-500 hover:bg-pink-50 hover:text-pink-400 border border-gray-100 px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all outline-none cursor-pointer">Hiện Đại</button>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-12" id="productGrid">
+            {% for p in products %}
+            <a href="/product/{{ p[0] }}" class="product-item group flex flex-col bg-white/60 backdrop-blur-sm p-4 rounded-3xl magic-shadow magic-hover border border-white relative h-full" data-category="{{ p[5] }}" {% if loop.index > 12 %} style="display: none; opacity: 0; transform: scale(0.95);" {% else %} style="display: flex; opacity: 1; transform: scale(1);" {% endif %}>
+                <div class="absolute top-6 left-6 z-10 bg-white text-pink-400 text-[10px] font-black px-3 py-1 rounded-full uppercase shadow-sm flex items-center gap-1"><i class="fa-solid fa-ribbon"></i> {{ p[5] }}</div>
+                <div class="relative aspect-[3/4] bg-gray-50 rounded-tr-[50px] rounded-bl-[50px] rounded-tl-xl rounded-br-xl overflow-hidden mb-4">
+                    <img src="{{ url_for('static', filename='images/' + p[4]) }}" alt="{{ p[1] }}" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+                </div>
+                <div class="flex flex-col text-center px-2 flex-1">
+                    <h3 class="font-royal font-bold text-gray-800 text-lg mb-1 group-hover:text-pink-500 transition-colors duration-300 line-clamp-2 min-h-[56px]">{{ p[1] }}</h3>
+                    <p class="text-[11px] text-gray-400 font-bold uppercase tracking-widest mb-2">Đã bán 12k • Kho: {{ p[3] }}</p>
+                    <span class="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500 mb-2">{{ "{:,.0f}".format(p[2]) }} ₫</span>
+                    <div class="mt-auto pt-3 border-t border-pink-50">
+                        <span class="inline-block w-full bg-pink-50 text-pink-500 font-bold uppercase tracking-widest text-[10px] py-3 rounded-full group-hover:bg-gradient-to-r group-hover:from-purple-300 group-hover:to-pink-300 group-hover:text-white transition-colors duration-300">Xem Chi Tiết ✨</span>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </main>
+
+    <!-- 5. TẠP CHÍ -->
+    <section class="max-w-[1400px] mx-auto px-6 py-16" id="magazine-section">
+        <div class="flex flex-col items-center mb-12 text-center">
+            <span class="font-fairy text-4xl text-purple-400 mb-2 block">Tạp chí Hoàng gia</span>
+            <h2 class="text-3xl font-royal font-bold text-gray-800 mb-4">Cảm Hứng Thời Trang</h2>
+            <div class="h-1 w-20 bg-gradient-to-r from-transparent via-purple-300 to-transparent"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <a href="#" class="group block bg-white rounded-3xl p-4 magic-shadow hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-white hover:border-purple-100">
+                <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-6 relative bg-gray-100">
+                    <img src="{{ url_for('static', filename='images/tapchi1.jpg') }}" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute inset-0 bg-purple-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="bg-white/90 text-purple-500 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full backdrop-blur-sm shadow-lg">Khám phá</span>
+                    </div>
+                </div>
+                <div class="px-2">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="bg-purple-100 text-purple-600 text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full">Mẹo Phối Đồ</span>
+                        <span class="text-[10px] text-gray-400 font-bold"><i class="fa-regular fa-clock"></i> 5 phút đọc</span>
+                    </div>
+                    <h3 class="font-royal font-bold text-xl text-gray-800 group-hover:text-purple-500 transition-colors line-clamp-2 leading-snug">Bí quyết tỏa sáng đêm tiệc với Váy Xòe Công Chúa</h3>
+                    <p class="text-sm text-gray-500 mt-2 line-clamp-2 font-semibold">Khám phá những tips mix & match trang sức lấp lánh để hóa thân thành tâm điểm của mọi ánh nhìn trong đêm hội...</p>
+                </div>
+            </a>
+            <a href="#" class="group block bg-white rounded-3xl p-4 magic-shadow hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-white hover:border-pink-100">
+                <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-6 relative bg-gray-100">
+                    <img src="{{ url_for('static', filename='images/tapchi2.jpg') }}" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute inset-0 bg-pink-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="bg-white/90 text-pink-500 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full backdrop-blur-sm shadow-lg">Khám phá</span>
+                    </div>
+                </div>
+                <div class="px-2">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="bg-pink-100 text-pink-600 text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full">Xu Hướng</span>
+                        <span class="text-[10px] text-gray-400 font-bold"><i class="fa-regular fa-clock"></i> 3 phút đọc</span>
+                    </div>
+                    <h3 class="font-royal font-bold text-xl text-gray-800 group-hover:text-pink-500 transition-colors line-clamp-2 leading-snug">Top 5 mẫu Đầm Dạ Hội thống trị xu hướng Thu Đông</h3>
+                    <p class="text-sm text-gray-500 mt-2 line-clamp-2 font-semibold">Điểm danh những thiết kế satin bóng mượt và đính đá sang trọng đang làm mưa làm gió trên các sàn diễn lớn...</p>
+                </div>
+            </a>
+            <a href="#" class="group block bg-white rounded-3xl p-4 magic-shadow hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-white hover:border-indigo-100">
+                <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-6 relative bg-gray-100">
+                    <img src="{{ url_for('static', filename='images/tapchi3.jpg') }}" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute inset-0 bg-indigo-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="bg-white/90 text-indigo-500 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full backdrop-blur-sm shadow-lg">Khám phá</span>
+                    </div>
+                </div>
+                <div class="px-2">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="bg-indigo-100 text-indigo-600 text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full">Lookbook</span>
+                        <span class="text-[10px] text-gray-400 font-bold"><i class="fa-regular fa-clock"></i> 8 phút đọc</span>
+                    </div>
+                    <h3 class="font-royal font-bold text-xl text-gray-800 group-hover:text-indigo-500 transition-colors line-clamp-2 leading-snug">Bộ sưu tập "Giấc Mơ Phép Thuật" - Ra mắt giới hạn</h3>
+                    <p class="text-sm text-gray-500 mt-2 line-clamp-2 font-semibold">Từng đường kim mũi chỉ được các tinh linh thợ may chăm chút tỉ mỉ, mang đến vẻ đẹp thuần khiết và kiêu kỳ...</p>
+                </div>
+            </a>
+        </div>
+        
+        <div class="flex justify-center mt-10">
+            <a href="#" class="bg-white text-purple-400 border border-purple-200 px-8 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-purple-50 hover:text-purple-600 transition-all shadow-sm flex items-center gap-2">
+                Mở cuốn tạp chí <i class="fa-solid fa-book-open-reader"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 6. FOOTER -->
+    <footer id="footer" class="bg-white text-gray-700 pt-20 pb-10 rounded-t-[60px] magic-shadow border-t border-purple-50 relative mt-12">
+        <div class="max-w-[1400px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 relative z-10">
+            <div class="flex flex-col items-center lg:items-start text-center lg:text-left">
+                <a href="/" class="flex flex-col items-center lg:items-start group mb-6">
+                    <span class="font-fairy text-pink-400 text-3xl leading-none -mb-2 group-hover:text-purple-400 transition-colors">Princess</span>
+                    <span class="text-3xl font-royal font-bold tracking-widest text-gray-800">GENZ.</span>
+                </a>
+                <p class="text-gray-500 text-sm font-semibold leading-relaxed mb-6">Vương quốc thời trang dành riêng cho bạn. Cùng chúng mình viết tiếp những trang cổ tích thật đẹp giữa đời thực nhé!</p>
+                <div class="flex gap-4">
+                    <a href="https://facebook.com" target="_blank" class="w-10 h-10 rounded-full bg-pink-50 flex items-center justify-center text-pink-400 hover:bg-pink-400 hover:text-white transition-all shadow-sm"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://instagram.com" target="_blank" class="w-10 h-10 rounded-full bg-pink-50 flex items-center justify-center text-pink-400 hover:bg-pink-400 hover:text-white transition-all shadow-sm"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://tiktok.com" target="_blank" class="w-10 h-10 rounded-full bg-pink-50 flex items-center justify-center text-pink-400 hover:bg-pink-400 hover:text-white transition-all shadow-sm"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="text-center lg:text-left">
+                <h4 class="font-bold text-[11px] uppercase tracking-widest mb-6 text-purple-300">Cẩm Nang Công Chúa</h4>
+                <ul class="space-y-4 text-sm text-gray-500 font-semibold">
+                    <li><a href="/info/size" class="hover:text-pink-400 transition-colors flex items-center justify-center lg:justify-start gap-2"><i class="fa-solid fa-ruler w-4 text-pink-200"></i> Hướng dẫn chọn size</a></li>
+                    <li><a href="/info/doi-tra" class="hover:text-pink-400 transition-colors flex items-center justify-center lg:justify-start gap-2"><i class="fa-solid fa-rotate-left w-4 text-pink-200"></i> Đổi trả trong 30 ngày</a></li>
+                    <li><a href="/info/bao-mat" class="hover:text-pink-400 transition-colors flex items-center justify-center lg:justify-start gap-2"><i class="fa-solid fa-shield-cat w-4 text-pink-200"></i> Chính sách bảo mật</a></li>
+                    <li><a href="/info/vip" class="hover:text-pink-400 transition-colors flex items-center justify-center lg:justify-start gap-2"><i class="fa-solid fa-crown w-4 text-pink-200"></i> Đặc quyền thẻ VIP</a></li>
+                </ul>
+            </div>
+            <div class="text-center lg:text-left">
+                <h4 class="font-bold text-[11px] uppercase tracking-widest mb-6 text-purple-300">Sứ Giả Hỗ Trợ</h4>
+                <ul class="space-y-4 text-sm text-gray-500 font-semibold">
+                    <li><a href="/info/store" class="hover:text-pink-400 transition-colors flex items-center justify-center lg:justify-start gap-2"><i class="fa-solid fa-location-dot w-4 text-pink-200"></i> Hệ thống lâu đài (Store)</a></li>
+                    <li><a href="/info/tra-cuu" class="hover:text-pink-400 transition-colors flex items-center justify-center lg:justify-start gap-2"><i class="fa-solid fa-truck-fast w-4 text-pink-200"></i> Tra cứu cỗ xe</a></li>
+                    <li><a href="tel:19008888" class="hover:text-pink-400 transition-colors flex items-center justify-center lg:justify-start gap-2"><i class="fa-solid fa-headset w-4 text-pink-200"></i> Hotline: 1900 8888</a></li>
+                    <li><a href="mailto:cskh@princessgenz.vn" class="hover:text-pink-400 transition-colors flex items-center justify-center lg:justify-start gap-2"><i class="fa-solid fa-envelope w-4 text-pink-200"></i> cskh@princessgenz.vn</a></li>
+                </ul>
+            </div>
+            <div class="text-center lg:text-left">
+                <h4 class="font-bold text-[11px] uppercase tracking-widest mb-6 text-purple-300">Thư Mời Vũ Hội</h4>
+                <p class="text-gray-500 text-xs font-semibold mb-4">Nhận ngay voucher 50K khi đăng ký nhận tin!</p>
+                <form class="flex bg-white p-1.5 rounded-full magic-shadow border border-pink-50 focus-within:border-purple-200 transition-colors mb-8">
+                    <input type="email" placeholder="Email của công chúa..." class="flex-1 bg-transparent text-xs font-semibold text-gray-700 px-4 outline-none placeholder-gray-300 min-w-0">
+                    <button type="submit" class="bg-gradient-to-r from-purple-300 to-pink-300 text-white px-5 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest hover:from-purple-400 hover:to-pink-400 transition-colors whitespace-nowrap">Gửi đi ✨</button>
+                </form>
+                <h4 class="font-bold text-[11px] uppercase tracking-widest mb-4 text-purple-300">Phương Thức Thanh Toán</h4>
+                <div class="flex items-center justify-center lg:justify-start gap-2">
+                    <div class="w-10 h-7 bg-gray-50 rounded border border-gray-100 flex items-center justify-center text-blue-800 font-black text-[10px] italic shadow-sm">VISA</div>
+                    <div class="w-10 h-7 bg-pink-50 rounded border border-pink-100 flex items-center justify-center text-pink-600 font-bold text-[9px] shadow-sm">MoMo</div>
+                    <div class="w-10 h-7 bg-green-50 rounded border border-green-100 flex items-center justify-center text-green-600 font-bold text-[9px] shadow-sm">COD</div>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-[1400px] mx-auto px-6 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-gray-400 font-bold uppercase tracking-widest border-t border-purple-50">
+            <p>© 2026 THỜI TRANG GENZ • GIẤC MƠ BỞI VÕ NGỌC TRANG.</p>
+        </div>
+    </footer>
+
+    <script>
+        function filterCategory(category, clickedButton) {
+            let buttons = document.querySelectorAll('.cat-btn');
+            buttons.forEach(btn => {
+                btn.className = "cat-btn bg-white text-gray-500 hover:bg-pink-50 hover:text-pink-400 border border-gray-100 px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all outline-none cursor-pointer";
+            });
+            clickedButton.className = "cat-btn bg-gradient-to-r from-purple-300 to-pink-300 text-white shadow-md shadow-pink-200 px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all outline-none cursor-pointer";
+
+            let title = document.getElementById('section-title');
+            title.textContent = category === 'Tiêu biểu' ? 'Một Số Sản Phẩm Tiêu Biểu' : 'Bộ Sưu Tập ' + category;
+
+            let items = document.querySelectorAll('.product-item');
+            let countOverview = 0; 
+            items.forEach(item => {
+                let itemCategory = item.getAttribute('data-category');
+                let shouldShow = (category === 'Tiêu biểu' && countOverview < 12) ? (++countOverview, true) : (itemCategory === category);
+
+                if (shouldShow) {
+                    item.style.display = 'flex';
+                    setTimeout(() => { item.style.opacity = '1'; item.style.transform = 'scale(1)'; }, 50);
+                } else {
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.95)';
+                    setTimeout(() => { item.style.display = 'none'; }, 300); 
+                }
+            });
+        }
+
+        const countDownDate = new Date().getTime() + 24 * 60 * 60 * 1000; 
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("fs-hours").innerText = hours.toString().padStart(2, '0');
+            document.getElementById("fs-mins").innerText = minutes.toString().padStart(2, '0');
+            document.getElementById("fs-secs").innerText = seconds.toString().padStart(2, '0');
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("fs-hours").innerText = "00";
+                document.getElementById("fs-mins").innerText = "00";
+                document.getElementById("fs-secs").innerText = "00";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

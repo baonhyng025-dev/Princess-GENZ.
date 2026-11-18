@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} ✨ Princess GENZ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Nunito', sans-serif; background-color: #FDFBFC; color: #5a4a4a; }
+        .font-royal { font-family: 'Playfair Display', serif; }
+        .font-fairy { font-family: 'Great Vibes', cursive; }
+        .magic-shadow { box-shadow: 0 15px 40px -10px rgba(224, 195, 252, 0.4); }
+        .float-gentle { animation: floatMagic 4s ease-in-out infinite; }
+        @keyframes floatMagic { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    </style>
+</head>
+<body class="antialiased selection:bg-purple-200 selection:text-purple-900 flex flex-col min-h-screen">
+
+    <div class="bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-300 text-white text-[11px] font-bold py-2.5 px-4 text-center tracking-widest uppercase relative overflow-hidden">
+        <span class="relative z-10">✨ Phép màu trao tay — Miễn phí cỗ xe ngựa vận chuyển cho đơn từ 500.000₫ ✨</span>
+    </div>
+
+    <!-- HEADER -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-purple-50 shadow-sm transition-all duration-500">
+        <div class="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between gap-8">
+            <a href="/" class="flex flex-col items-center group flex-shrink-0 mt-1">
+                <span class="font-fairy text-pink-400 text-3xl leading-none -mb-2 group-hover:text-purple-400 transition-colors">Princess</span>
+                <span class="text-xl font-royal font-bold tracking-widest text-gray-800">GENZ.</span>
+            </a>
+            <div class="flex items-center gap-5 flex-shrink-0">
+                <a href="/" class="text-[11px] font-bold text-gray-500 hover:text-pink-400 uppercase tracking-widest transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-house"></i> Lâu Đài Chính
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- NỘI DUNG CHÍNH ĐƯỢC LOAD ĐỘNG TỪ APP.PY -->
+    <main class="flex-grow max-w-[1000px] mx-auto w-full px-6 py-16">
+        <div class="bg-white rounded-[40px] magic-shadow p-10 md:p-16 border border-pink-50 relative overflow-hidden">
+            <!-- Đồ họa trang trí -->
+            <div class="absolute -top-10 -right-10 text-[150px] opacity-[0.03] text-pink-500"><i class="fa-brands fa-fort-awesome"></i></div>
+            
+            <div class="flex flex-col items-center mb-12 text-center relative z-10">
+                <span class="font-fairy text-4xl text-purple-400 mb-2 block">Princess Cẩm Nang</span>
+                <h1 class="text-4xl md:text-5xl font-royal font-bold text-gray-800 mb-6">{{ title }}</h1>
+                <div class="h-1 w-24 bg-gradient-to-r from-transparent via-pink-300 to-transparent"></div>
+            </div>
+
+            <!-- Đây là nơi toàn bộ Bảng size, Chính sách sẽ được "rót" vào -->
+            <div class="relative z-10 text-gray-700 text-lg leading-relaxed">
+                {{ content | safe }}
+            </div>
+            
+            <div class="mt-16 text-center">
+                <a href="/" class="inline-flex items-center gap-2 bg-gray-50 text-gray-500 font-bold px-8 py-3 rounded-full hover:bg-pink-50 hover:text-pink-500 transition-all border border-gray-100 shadow-sm">
+                    <i class="fa-solid fa-arrow-left-long"></i> Trở Về Mua Sắm
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white text-gray-700 pt-16 pb-8 rounded-t-[60px] magic-shadow border-t border-purple-50 mt-12">
+        <div class="max-w-[1400px] mx-auto px-6 flex flex-col items-center text-center">
+            <a href="/" class="flex flex-col items-center group mb-4">
+                <span class="font-fairy text-pink-400 text-2xl leading-none -mb-1">Princess</span>
+                <span class="text-2xl font-royal font-bold tracking-widest text-gray-800">GENZ.</span>
+            </a>
+            <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">© 2026 THỜI TRANG GENZ • GIẤC MƠ BỞI VÕ NGỌC TRANG.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

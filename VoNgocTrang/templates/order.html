@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh Toán - Thời Trang GenZ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#FAF7F7] min-h-screen flex items-center justify-center p-4">
+
+    <div class="bg-white max-w-3xl w-full rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row">
+        <!-- Bên trái: Ảnh sản phẩm -->
+        <div class="w-full md:w-1/2 bg-[#F2ECEB] p-8 flex flex-col justify-center items-center">
+            <img src="{{ url_for('static', filename='images/' + product[4]) }}" class="w-full h-80 object-cover rounded-2xl shadow-md border border-white">
+        </div>
+        
+        <!-- Bên phải: Form chốt đơn -->
+        <div class="w-full md:w-1/2 p-8 sm:p-12 flex flex-col justify-center">
+            <h2 class="text-xs text-[#d4a0a3] font-bold uppercase tracking-widest mb-2">Checkout</h2>
+            <h1 class="text-2xl font-serif font-bold text-gray-900 mb-6">{{ product[1] }}</h1>
+            
+            <div class="border-y border-stone-100 py-4 mb-6">
+                <div class="flex justify-between items-center text-sm mb-2">
+                    <span class="text-stone-500">Tài khoản đặt mua:</span>
+                    <span class="font-bold text-gray-900">{{ session.get('username') }}</span>
+                </div>
+                <div class="flex justify-between items-center text-sm mb-2">
+                    <span class="text-stone-500">Trạng thái kho:</span>
+                    <span class="font-bold text-emerald-600">Còn {{ product[3] }} chiếc</span>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                    <span class="text-stone-700 font-bold uppercase text-xs">Tổng tiền:</span>
+                    <span class="text-2xl font-serif text-[#d4a0a3] font-bold">{{ "{:,.0f}".format(product[2]) }} ₫</span>
+                </div>
+            </div>
+
+            <form method="POST">
+                <button type="submit" class="w-full py-4 bg-[#1A1818] hover:bg-[#d4a0a3] text-white font-bold text-xs uppercase tracking-widest rounded-xl transition shadow-lg">
+                    Xác Nhận Mua Ngay
+                </button>
+            </form>
+            <a href="/" class="text-center text-xs text-stone-500 mt-4 block hover:text-gray-900">← Quay lại cửa hàng</a>
+        </div>
+    </div>
+
+</body>
+</html>
